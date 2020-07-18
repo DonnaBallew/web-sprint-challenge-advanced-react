@@ -29,14 +29,61 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain how to build stateful class components.
+   Firs you declare your class and extend the React.Component base class. Then you set up our constructor and add state. Lastly, you render some UI and return some JSX.
 
-2. Describe the different phases of the component lifecycle.
+Example:
+class FooComponent extends React.Component {
+constructor () {
+super()
+this.state = {};
+}
+render () {
+return <div>Hello, I'm a Foo Component</div>
+}
+}
+}
 
-3. Demonstrate an understanding of class component lifecycle methods.
+2.  Describe the different phases of the component lifecycle.
+    There are three phases to the lifecycle and they are mounting, updating, and unmounting.
+    a) The mounting phase is the phase when the component is being built out. Whatever initial data you want
+    access to will be defined on the constructor of this phase. Your render method is invoked. componentDidMount gets called.
+    b) The update phase occurs when you're updating the component data. Any new props received from parent will trigger updates to a child. setState can be used to change the component's state data, forcing a call to render. shouldComponentUpdate is a method you can use here to stop a component from calling render if necessary.
+    c) The unmounting phase includes removing the component from the screen. componentWillUnmount is called an can be used for any clean up you may need to do.
 
-4. Define stateful logic.
+3.  Demonstrate an understanding of class component lifecycle methods.
+    class FooComponent extends React.Component {
+    constructor (props) {
+    super(props)
+    this.state = someStateData();
+    }
 
-5. Describe how to test a React component with React Testing Library.
+          componentDidMount (...) {
+            //make sure it's being rendered to figure out the changes that need to take place
+          }
+          componentDidUpdate (...) {
+            //perform the changes
+          }
+
+          componentWillUnmount (...) {
+            //cleans up
+          }
+        render () {
+          //render is called during the mounting and updating phase
+          return <div>Hello, I'ma Foo Component</div>
+          //return enables the component(s) to be viewed in the browser
+        }
+
+    }
+    }
+
+4.  Define stateful logic.
+    Stateful logic is any code that uses state and handles state before before a component is displayed. You can use hooks to extract stateful logic from a component so it can be tested independently and reused.
+
+5.  Describe how to test a React component with React Testing Library.
+    You can test a React component via Integration testing, End-to-end testing, and Unit testing.
+    The three steps to build a good test are "arrange", "act", and "assert". Arrange the test by setting up the code that can be tested. Act by calling a method or function that returns a result of interest to our test. With the return we "assert" if our expected return matched the actual return.
+
+If you created an app using CRA, the React Testing Library (RTL) and dependencies are added by default. If you don't use CRA, "Jest" and "RTL" need to be installed. The command to run and watch tests is "npm test". Start importing React in the test file and render, fireEvent, etc (what the test calls for) and import the component you wish to test. Use a combination of methods for the test steps provided by "RTL" and "Jest".
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
@@ -63,13 +110,13 @@ _Please follow the setup instructions closely so that you can get everything up 
 
 - [x] Run `npm install` to download dependencies for the server.
 - [x] Run the server using `npm start`.
-- [ ] Open a new browser tab and navigate to `http://localhost:3333/plants` - if you see a JSON object with plants data, then you know the server is running 👍
+- [x] Open a new browser tab and navigate to `http://localhost:3333/plants` - if you see a JSON object with plants data, then you know the server is running 👍
 
 **Starting the React app**
 
 - [x] In a separate terminal cd into the `client` folder and run `npm install` to download dependencies.
-- [ ] Still inside the `client` folder run `npm run start` to run the client application.
-- [ ] Your browser should open up the project as normal
+- [x] Still inside the `client` folder run `npm run start` to run the client application.
+- [x] Your browser should open up the project as normal
 
 **Starting your test runner**
 
