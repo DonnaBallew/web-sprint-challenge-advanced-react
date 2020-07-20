@@ -11,11 +11,6 @@ export const useForm = (initialValue) => {
     });
   };
 
-  // const handleSubmit = (e) => {
-  //     console.log(e);
-  // FINISH CODE!!!
-  // };
-
   const clearForm = (e) => {
     e.preventDefault();
     setValues(initialValue);
