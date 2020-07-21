@@ -42,7 +42,7 @@ test("form shows success message on submit with form details", () => {
   expect(getByDisplayValue(/Ballew/i)).toBeInTheDocument();
   expect(getByDisplayValue(/6547 N Academy Blvd, 1091/i)).toBeInTheDocument();
   expect(getByDisplayValue(/Colorado Springs/i)).toBeInTheDocument();
-  expect(getByDisplayValue(/CO/i)).toBeInTheDocument();
+  expect(getByDisplayValue(/CO/)).toBeInTheDocument();
   expect(getByDisplayValue(/80918/i)).toBeInTheDocument();
 
   const checkoutSubmit = getByTestId(/submitCheckout/i);
